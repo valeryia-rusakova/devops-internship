@@ -13,3 +13,7 @@ Match User Bob
 PasswordAuthentication yes (remove #)
 Match all
 
+## Set password complexity
+
+After installing the libpam-pwquality we need to change /etc/pam.d/common-password file.
+Set minlen=14 dcredit=-1 lcredit=-1 in the following line: password requisite.

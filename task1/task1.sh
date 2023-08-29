@@ -38,3 +38,8 @@ ping 172.20.10.7 #host machine ip address
 #Allow remote password auth for bob
 sudo nano /etc/ssh/sshd_config #Change password authentication
 sudo service sshd restart
+
+#Set password complexity
+sudo apt install libpam-pwquality
+sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak #backup
+sudo vim /etc/pam.d/common-password #set password complexity
