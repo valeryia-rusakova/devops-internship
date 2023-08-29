@@ -8,17 +8,15 @@ Then we press "w" to save all changes.
 
 ## Allow remote password auth for bob
 
-We need to change /etc/ssh/sshd-config file and add next lines:
-Match User Bob
-PasswordAuthentication yes (remove #)
-Match all
+We need to change **/etc/ssh/sshd_config** file and add next lines:
+**AllowUsers bob**
 
 ## Set password complexity
 
-After installing the libpam-pwquality we need to change /etc/pam.d/common-password file.
-Set minlen=14 dcredit=-1 lcredit=-1 in the following line: password requisite.
+After installing the libpam-pwquality we need to change /etc/pam.d/common_password file.
+Set **minlen=14 dcredit=-1 lcredit=-1** in the following line: **password requisite**.
 
 ## Add permission for tech_group
 
-Write the following line: %tech_group ALL=(ALL:ALL) ALL
+Write the following line: **%tech_group ALL=(ALL:ALL) ALL**
 to allow members of tech_group to execute commands as root
