@@ -43,3 +43,6 @@ sudo service sshd restart
 sudo apt install libpam-pwquality
 sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak #backup
 sudo vim /etc/pam.d/common-password #set password complexity
+
+#Add permission for tech_group
+sudo visudo -f /etc/sudoers
