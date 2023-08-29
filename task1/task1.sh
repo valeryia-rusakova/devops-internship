@@ -31,3 +31,6 @@ sudo vim /etc/fstab #write UUID=copied /var/log ext4 defaults 0 2
 sudo useradd -m bob
 sudo groupadd tech_group
 sudo usermod -aG tech_group bob
+
+#Check if there is network with host machine
+ping 172.20.10.7 #host machine ip address
