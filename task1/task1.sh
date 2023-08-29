@@ -26,3 +26,8 @@ sudo umount /dev/sdb2
 sudo mount /dev/sdb2 /var/log
 sudo blkid /dev/sdb2  #cope UUID of the filesystem
 sudo vim /etc/fstab #write UUID=copied /var/log ext4 defaults 0 2
+
+#Create user and group
+sudo useradd -m bob
+sudo groupadd tech_group
+sudo usermod -aG tech_group bob
