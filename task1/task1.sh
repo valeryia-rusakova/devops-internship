@@ -34,3 +34,7 @@ sudo usermod -aG tech_group bob
 
 #Check if there is network with host machine
 ping 172.20.10.7 #host machine ip address
+
+#Allow remote password auth for bob
+sudo nano /etc/ssh/sshd_config #Change password authentication
+sudo service sshd restart
