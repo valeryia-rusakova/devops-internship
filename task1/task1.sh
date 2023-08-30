@@ -72,3 +72,6 @@ exit
 #Mount local folder
 sudo adduser qwetqywer vboxsf #add user to the group
 
+#Set session timeout 1m for all users
+sudo vim /etc/ssh/sshd_config #change ClientAliveInterval and ClientAliveCountMax
+

@@ -49,3 +49,8 @@ We need to login as smith and add the following line to the end of **~/.profile*
 
 ## Mount local folder
 First we need to create a shared folder from Virtual Box Manager and enable auto-mounting. Then we need to be member of the group **vboxsf** to have access to these folder.
+
+## Set session timeout
+We need to change **/etc/ssh/sshd_config** file and set the following parameters:  
+**ClientAliveInterval 60**  
+**ClientAliveCountMax 1**
