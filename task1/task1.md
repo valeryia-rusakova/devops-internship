@@ -9,7 +9,9 @@ Then we press "w" to save all changes.
 ## Allow remote password auth for bob
 
 We need to change **/etc/ssh/sshd_config** file and add next lines:
-**AllowUsers bob**
+**Match User bob**
+**PasswordAuthentication yes**
+**Match all**
 
 ## Set password complexity
 
@@ -25,9 +27,9 @@ to allow members of tech_group to execute commands as root
 
 First we need to generate ssh key pair using **ssh-keygen** command.
 Then we need to login as smith and connect to our host machine via ssh using password (to create .ssh/ directory).
-# Login as smith
+### Login as smith
 **su smith**
-# Connect to host machine via ssh
+### Connect to host machine via ssh
 **ssh valeryia@172.20.10.7**
 The .ssh/ directory was generated. Now we can create authorized_keys file and put the generated public key there.
 Finally we are ready to connect to Linux from host machine using the following command:
