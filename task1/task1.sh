@@ -36,7 +36,7 @@ sudo usermod -aG tech_group bob
 ping 172.20.10.7 #host machine ip address
 
 #Allow remote password auth for bob
-sudo nano /etc/ssh/sshd_config #Change password authentication
+sudo nano /etc/ssh/sshd_config #change password authentication
 sudo service sshd restart
 
 #Set password complexity
@@ -50,3 +50,12 @@ sudo visudo -f /etc/sudoers
 #Add one more user and add it to the group
 sudo useradd -m smith
 sudo usermod -aG tech_group smith
+
+#Add ssh key to smith authorized_keys
+su smith
+ssh valeryia@172.20.10.7
+exit
+cd .ssh/
+vim authorized_keys #put the generated public key here
+chmod 0600 authorized_keys #change permissions
+

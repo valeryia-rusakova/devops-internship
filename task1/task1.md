@@ -20,3 +20,16 @@ Set **minlen=14 dcredit=-1 lcredit=-1** in the following line: **password requis
 
 Write the following line: **%tech_group ALL=(ALL:ALL) ALL**
 to allow members of tech_group to execute commands as root
+
+## Add ssh key to smith authorized_keys
+
+First we need to generate ssh key pair using **ssh-keygen** command.
+Then we need to login as smith and connect to our host machine via ssh using password (to create .ssh/ directory).
+#Login as smith
+**su smith**
+#Connect to host machine via ssh
+**ssh valeryia@172.20.10.7**
+The .ssh/ directory was generated. Now we can create authorized_keys file and put the generated public key there.
+Finally we are ready to connect to Linux from host machine using the following command:
+**ssh -i ./mykey smith@172.20.10.9** (we are using private key, not public)
+
