@@ -8,10 +8,10 @@ Then we press "w" to save all changes.
 
 ## Allow remote password auth for bob
 
-We need to change **/etc/ssh/sshd_config** file and add next lines:
-**Match User bob**
-**PasswordAuthentication yes**
-**Match all**
+We need to change **/etc/ssh/sshd_config** file and add next lines:  
+**Match User bob**  
+**PasswordAuthentication yes**  
+**Match all**  
 
 ## Set password complexity
 
@@ -32,6 +32,15 @@ Then we need to login as smith and connect to our host machine via ssh using pas
 ### Connect to host machine via ssh
 **ssh valeryia@172.20.10.7**
 The .ssh/ directory was generated. Now we can create authorized_keys file and put the generated public key there.
-Finally we are ready to connect to Linux from host machine using the following command:
+Finally we are ready to connect to Linux from host machine using the following command:  
 **ssh -i ./mykey smith@172.20.10.9** (we are using private key, not public)
+
+## Ban smith to connect remotely using password
+We need to change **/etc/ssh/sshd_config** file and add the following lines:  
+Match User bob  
+PasswordAuthentication yes  
+**Match User smith**  
+**PasswordAuthentication no**  
+Match all  
+
 

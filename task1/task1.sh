@@ -59,3 +59,7 @@ cd .ssh/
 vim authorized_keys #put the generated public key here
 chmod 0600 authorized_keys #change permissions
 
+#Ban smith to connect remotely using password
+sudo vim /etc/ssh/sshd_config #change password authentication
+sudo service ssh restart
+
