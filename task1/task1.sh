@@ -69,3 +69,6 @@ vim ~/.bashrc #add env var
 vim ~/.profile #add env var
 exit
 
+#Mount local folder
+sudo adduser qwetqywer vboxsf #add user to the group
+

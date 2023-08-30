@@ -46,3 +46,6 @@ Match all
 ## Create permanent env variable for smith
 We need to login as smith and add the following line to the end of **~/.profile**, **~/.bashrc** files:  
 **export USER_DESCRIPTION='The user for secure access'**
+
+## Mount local folder
+First we need to create a shared folder from Virtual Box Manager and enable auto-mounting. Then we need to be member of the group **vboxsf** to have access to these folder.
