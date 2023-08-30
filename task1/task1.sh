@@ -63,3 +63,9 @@ chmod 0600 authorized_keys #change permissions
 sudo vim /etc/ssh/sshd_config #change password authentication
 sudo service ssh restart
 
+#Create permanent env var for smith
+su smith #login as smith
+vim ~/.bashrc #add env var
+vim ~/.profile #add env var
+exit
+

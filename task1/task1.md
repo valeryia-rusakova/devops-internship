@@ -43,4 +43,6 @@ PasswordAuthentication yes
 **PasswordAuthentication no**  
 Match all  
 
-
+## Create permanent env variable for smith
+We need to login as smith and add the following line to the end of **~/.profile**, **~/.bashrc** files:  
+**export USER_DESCRIPTION='The user for secure access'**
