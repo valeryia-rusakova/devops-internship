@@ -1,6 +1,6 @@
 # Task 1
 
-## sudo fdisk /dev/sdb
+## Create partition (sudo fdisk /dev/sdb)
 
 We press "n" to create a new partition. Then press "p" to specify partition type and "1"(in case of /home directory) to specify partition number.
 Next we choose the size of the partition(+8G for /home and +6,5G for /var/log).
@@ -15,7 +15,7 @@ We need to change **/etc/ssh/sshd_config** file and add next lines:
 
 ## Set password complexity
 
-After installing the libpam-pwquality we need to change /etc/pam.d/common_password file.
+After installing the libpam-pwquality we need to change /etc/pam.d/common_password file.  
 Set **minlen=14 dcredit=-1 lcredit=-1** in the following line: **password requisite**.
 
 ## Add permission for tech_group
