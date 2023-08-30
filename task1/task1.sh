@@ -46,3 +46,7 @@ sudo vim /etc/pam.d/common-password #set password complexity
 
 #Add permission for tech_group
 sudo visudo -f /etc/sudoers
+
+#Add one more user and add it to the group
+sudo useradd -m smith
+sudo usermod -aG tech_group smith
