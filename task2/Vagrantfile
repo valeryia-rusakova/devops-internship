@@ -1,19 +1,22 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-hosts = {
-  "firstvm" => "172.20.11.10",
-  "secondvm" => "172.20.11.11"
-}
+
+
+NODES = [
+    { :hostname => "firstvm", :ip => "172.20.11.10", :prov => "provision1.sh" },
+    { :hostname => "secondvm", :ip => "172.20.11.11", :prov => "provision2.sh" }
+]
 
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-20.04"
 
-  hosts.each do |name, ip|
-    config.vm.define name do |machine|
-      machine.vm.network "private_network", ip: ip
+  NODES.each do |node|
+    config.vm.define node[:hostname] do |machine|
+      machine.vm.network "private_network", ip: node[:ip]
+      machine.vm.provision "shell", path: node[:prov]
       machine.vm.provider "virtualbox" do |vb|
-        vb.name = name
+        vb.name = node[:hostname]
         vb.gui = true
         vb.memory = "2048"
         vb.cpus = 1
@@ -22,6 +25,5 @@ Vagrant.configure("2") do |config|
     config.vm.usable_port_range = 8000..8999
     config.vm.network "forwarded_port", guest: 80, host: 8086,
       auto_correct: true
-    config.vm.provision "shell", path: "provision.sh"
   end
 end
