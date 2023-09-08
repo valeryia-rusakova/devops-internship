@@ -1,0 +1,22 @@
+server {
+    	listen 80;
+    	listen [::]:80;
+
+    	server_name jenkins.itechart.labs;
+    	return 301 https:/$server_name$request_uri;
+}
+
+server {
+    	listen 443 ssl;
+    	listen [::]:443 ssl;
+
+    	server_name jenkins.itechart.labs;
+
+    	ssl_certificate /etc/ssl/certs/localhost.crt;
+    	ssl_certificate_key /etc/ssl/private/localhost.key;
+
+    	location / {
+        		include /etc/nginx/proxy_params;
+        		proxy_pass http://172.20.11.10:8080;
+    	}
+}
